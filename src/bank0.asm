@@ -64,7 +64,6 @@ LOOP_GAME:
 	call WAIT_VBLANK
 	call CHECK_COLLISION
 	call READ_JOYPAD
-	call TEST
 	call CHECK_INPUT
 	call SCROLL_BGD
 	call SCROLL_CACTUS
@@ -90,15 +89,6 @@ END_GAME:
 ;-------------
 ; Subroutines
 ;-------------
-
-TEST:
-	ld b, a
-	or %11110111     ; DULRTSBA - only all 1 if Start is pressed
-	cpl              ; 00000000 if up is pressed
-	add a, $0        ; set flags
-	jp z, END_GAME    ; if up not pressed
-	ld a, b
-	ret
 
 LOAD_SCORE:
 	SpriteAttr score0
