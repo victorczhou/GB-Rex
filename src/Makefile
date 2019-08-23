@@ -13,7 +13,7 @@ all : $(OBJS)
 	$(ASM) -o$(OBJS_NAME).obj $(OBJS)
 	$(LINK) -m$(OBJ_NAME).map -n$(OBJ_NAME).sym -o$(OBJ_NAME).gb $(OBJS_NAME).obj
 	$(FIX) -v $(OBJ_NAME).gb
-	del $(OBJS_NAME).obj
+	rm $(OBJS_NAME).obj
 
 allrun:
 	make
